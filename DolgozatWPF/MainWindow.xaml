@@ -1,12 +1,48 @@
-﻿<Window x:Class="DolgozatWPF.MainWindow"
+﻿<Window x:Class="WpfDolgozat.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DolgozatWPF"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Dolgozatok" Height="500" Width="700">
 
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- DataGrid -->
+        <DataGrid x:Name="dgAdatok" Grid.Row="0" AutoGenerateColumns="True"
+                  Margin="0 0 0 10" />
+
+        <!-- Labels + TextBoxes -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 10 0 10">
+
+            <StackPanel Margin="10">
+                <TextBlock Text="Név:"/>
+                <TextBox x:Name="tbNev" Width="150"/>
+            </StackPanel>
+
+            <StackPanel Margin="10">
+                <TextBlock Text="Életkor:"/>
+                <TextBox x:Name="tbEletkor" Width="80"/>
+            </StackPanel>
+
+            <StackPanel Margin="10">
+                <TextBlock Text="Pontszám:"/>
+                <TextBox x:Name="tbPontszam" Width="80"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!-- Gombok -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+
+            <Button x:Name="btnHozzaad" Content="Hozzáadás" Width="120"
+                    Margin="10" Click="btnHozzaad_Click"/>
+
+            <Button x:Name="btnMentes" Content="Mentés" Width="120"
+                    Margin="10" Click="btnMentes_Click"/>
+
+        </StackPanel>
     </Grid>
 </Window>
